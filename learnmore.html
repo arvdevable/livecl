@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your website description here">
+    <meta name="author" content="Your name or organization here">
+    <title>livecl</title>
+    <link rel="stylesheet" href="lm.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <main><br>
+        <h1>About <i>"livecl"</i></h1>
+        <p>"<i>livecl</i>" is an experimental website for my learning purpose. I'm learning designs and JavaScript's <span style="font-family: monospace; font-size: large;">`Date()`</span> script trough making this website and hopefully this will get useful on my journey through this long journey on designs.</p>
+        <p>I learned how I can combine two fonts together to make something <i>eye-catching</i> and learned how to use JavaScript for recieve time information and their timezone.</p>
+        <br><br>
+        <h1>Showcase.</h1>
+        <p>So, here's how I got these codes working. These codes should have been easy for you who have familiar with Javascript/HTML languages.</p>
+        <p>I have three HTML <span style="font-family: monospace; font-size: large;">id</span>s for the script to get it work. One is <span style="font-family: monospace; font-size: large;">`current-time`</span> ID for updating the time, and <span style="font-family: monospace; font-size: large;">`current-date`</span> ID for updating the date. So, if we implement it into HTML, this is how they should look like:</p>
+        <div id="script">
+            &lt;div id=&quot;datetime&quot;&gt;<br>
+            &nbsp;&nbsp;&lt;h1 id=&quot;current-time&quot;&gt;&lt;/h1&gt;<br>
+            &nbsp;&nbsp;&lt;p id=&quot;current-date&quot;&gt;&lt;/p&gt;<br>
+            &lt;/div&gt;
+        </div>
+        <p>They're not yet doing anything... what's wrong? Alright, let's add a JavaScript script, that might work.</p>
+        <div id="script">
+            &lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+        </div>
+
+        <p>We'll explain updateTime only, and you can learn all of the scripts if you're feeling lucky. You can add these into main.js. Lets go with updateTime() function first.</p>
+        <div id="script">
+            function updateTime() { <br>
+            }
+        </div>
+
+        <p>...then add something to get the Date() with</p>
+        <div id="script">
+            function updateTime() {<br>
+            &nbsp;&nbsp;const now = new Date();<br>
+            }
+        </div>
+
+        <p>Then, define the currentTime()! You can turn on the <span style="font-family: monospace; font-size: large;">`hour12`</span> if you want, but it will change into a 12 hour clock with AM/PM thingy.</p>
+        <div id="script">
+            const currentTime = now.toLocaleTimeString('en-US', { hour12: false });
+        </div>
+
+        <p>It's partly done! The next line is for getting the <span style="font-family: monospace; font-size: large;">`current-time`</span> ID for placing the actual time into the HTML.</p>
+        <div id="script">
+            document.getElementById('current-time').textContent = `${currentTime}`;
+        </div>
+
+        <p>And with that, we are done defining the updateTime() function! and this is how the code should look like:</p>
+        <div id="script">
+            <i>// Add this JavaScript snippet to your main.js file</i><br>
+            function updateTime() {<br>
+                &nbsp;&nbsp;<i>// Obtain the current time and date </i><br>
+                &nbsp;&nbsp;const now = new Date();<br>
+                &nbsp;&nbsp;<i>// Format the current time to display</i><br>
+                &nbsp;&nbsp;const currentTime = now.toLocaleTimeString('en-US', { hour12: false });<br>
+                &nbsp;&nbsp;<i>// Update the HTML with the current time</i><br>
+                &nbsp;&nbsp;document.getElementById('current-time').textContent = `${currentTime}`;<br>
+            }
+        </div>
+        <p>With these code snippets, the `updateTime()` function gets the current time, formats it appropriately, and updates the HTML element with the time.</p>
+
+        <br><br><br><br>
+    </main>
+    <footer>
+        <p>&copy; Blasius N. Marvin. All rights reserved | <a href="learnmore.html">Learn More</a></p>
+        <p>Using the timezone: <span id="tz"></span></p>
+    </footer>
+    <script src="js/lm.js"></script>
+</body>
+</html>
